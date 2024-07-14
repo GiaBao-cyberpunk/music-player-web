@@ -1,0 +1,208 @@
+* {
+   margin: 0;
+   padding: 0; 
+   box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ccc;
+}
+.main {
+    width: 100%;
+    max-width: 723px;
+    margin: 0 auto 0;
+    position: relative;
+    background-color: var(--white-color);
+}
+
+.dashboard {
+    position: fixed;
+    max-width: 723px;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff; 
+    padding: 12px 8px;
+}
+
+.dashboard__header {
+    text-align: center;
+}
+
+.dashboard__header h4 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.dashboard__name-song {
+    font-size: 2.4rem;
+    color: var(--text-color);
+}
+
+.cd {
+    width: 200px;
+    margin: 10px auto 14px;
+}
+
+.cd__thumb {
+    background: center / cover no-repeat;
+    padding-top: 100%;
+    border-radius: 100px;
+}
+
+.control {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.btn.active {
+    color: var(--primary-color);
+}
+
+.btn-random,
+.btn-prev,
+.btn-next,
+.btn-repeat {
+    color: #666;
+}
+
+.btn-repeat {
+
+}
+
+.btn-prev {
+
+}
+
+
+.btn-toggle-play {
+    font-size: 2.6rem;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.btn-toggle-play.playing .icon-play {
+    display: none;
+
+}
+
+.btn-toggle-play.playing .icon-pause {
+    display: block;
+
+}
+
+.btn-toggle-play .icon-play {
+    position: relative;
+    left: 1.2px;
+    top: -1px;
+}
+
+.btn-toggle-play .icon-pause {
+    position: relative;
+    top: -1.0px;
+    display: none;
+}
+
+.btn-next {
+
+}
+
+.btn-random {
+
+}
+
+.progress {
+    width: 100%;
+    appearance: none;
+    background-color: #d3d3d3;
+    height: 6px;
+    outline: none;
+    opacity: 0.8;
+    transition: opacity linear 0.2s;
+    accent-color: var(--primary-color);
+    transition: background .3s ease-in-out;
+    cursor: pointer;
+    margin: 10px 0 0;
+
+}
+
+.progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: var(--primary-color); 
+}
+
+
+.playlist {
+    padding: 8px 12px 20px;
+    background-color: #f6e9ec;
+    margin-top: 367px;
+}
+
+.song {
+    margin-top: 12px;
+    padding: 10px 16px;
+    background-color: var(--white-color);
+    display: flex;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.song.active,
+.song:hover {
+    background-color: var(--primary-color);
+}
+
+.song.active .title,
+.song.active .author,
+.song.active .option,
+.song:hover .title,
+.song:hover .author,
+.song:hover .option {
+    color: var(--white-color);
+}
+
+.thumb {
+    background: center / cover no-repeat;
+    margin: auto 20px auto 4px;
+    --size: 52px;
+    width: var(--size);
+    padding-top: var(--size);
+    border-radius: calc(var(--size) / 2);
+}
+
+.body {
+    flex: 1;
+    padding-bottom: 3px;
+}
+
+.title {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+.author {
+    font-size: 1.6rem;
+    color: #777;
+    margin-top: 4px;
+}
+
+.option {
+    color: #999;
+    font-size: 2.2rem;
+    width: 42px;
+    text-align: right;
+}
