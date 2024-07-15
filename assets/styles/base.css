@@ -20,8 +20,7 @@
 
 }
 
-
-@meida (min-width: 1024px) {
+@media (min-width: 1024px) {
     .btn:hover {
         background-color: #ccc;
     }
@@ -31,4 +30,14 @@
         background-color: #f3dde3;
         color: var(--primary-color);
     }
+
+    .song:hover {
+        background-color: var(--primary-color);
+    }
+    
+    .song:hover .title,
+    .song:hover .author,
+    .song:hover .option {
+    color: var(--white-color);
+}
 }

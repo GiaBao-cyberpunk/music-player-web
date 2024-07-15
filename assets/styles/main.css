@@ -56,6 +56,8 @@ body {
     background: center / cover no-repeat;
     padding-top: 100%;
     border-radius: 100px;
+    will-change: rotate;
+    transition: rotate linear 0.2s;
 }
 
 .control {
@@ -133,7 +135,6 @@ body {
     transition: background .3s ease-in-out;
     cursor: pointer;
     margin: 10px 0 0;
-
 }
 
 .progress::-webkit-slider-thumb {
@@ -158,18 +159,15 @@ body {
     display: flex;
     border-radius: 4px;
     cursor: pointer;
+
 }
-.song.active,
-.song:hover {
+.song.active {
     background-color: var(--primary-color);
 }
 
 .song.active .title,
 .song.active .author,
-.song.active .option,
-.song:hover .title,
-.song:hover .author,
-.song:hover .option {
+.song.active .option {
     color: var(--white-color);
 }
 
