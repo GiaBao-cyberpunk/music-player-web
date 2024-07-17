@@ -32,22 +32,22 @@
     }
 
     .song:hover {
-        background-color: var(--primary-color);
+        background-color: #de4870;
     }
     
     .song:hover .title,
     .song:hover .author,
     .song:hover .option {
-    color: var(--white-color);
+        color: var(--white-color);
     }
 }
 
 
 @keyframes fadeIn {
     from {
-        opacity: 0;
+        opacity: var(--fadeIn-from);
     }
     to {
-        opacity: 1;
+        opacity: var(--fadeIn-to);
     }
 }

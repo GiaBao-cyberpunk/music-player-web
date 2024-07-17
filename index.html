@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music player</title>
-    <link rel="icon" href="https://scontent.fsgn15-1.fna.fbcdn.net/v/t39.30808-6/449078195_2772738966242330_5749427813630444468_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=xirGGjU_XRsQ7kNvgF3kt3d&_nc_ht=scontent.fsgn15-1.fna&oh=00_AYB69mONxMkwLsQaLFIdUnWTmDzQ_vSP2YJz0_yBgzjNGQ&oe=669B03E0" type="image/x-icon" />
+    <link rel="icon" href="./assets/img/favicon.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/styles/main.css">
     <link rel="stylesheet" href="./assets/styles/base.css">
     <script src="https://kit.fontawesome.com/e4f7b1c3b0.js" crossorigin="anonymous"></script>
@@ -22,7 +22,7 @@
             <div class="control">
                 <div class="btn btn-repeat">
                     <i class="fa-solid fa-arrow-rotate-right"></i>
-                </div>
+                </div>    
                 <div class="btn btn-prev">
                     <i class="fa-solid fa-backward-step"></i>
                 </div>
@@ -33,16 +33,19 @@
                 <div class="btn btn-next">
                     <i class="fa-solid fa-forward-step"></i>
                 </div>
-                <div class="btn btn-random">
-                    <i class="fa-solid fa-shuffle"></i>
+                <div class="btn-box">
+                    <div class="btn btn-random">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </div>
+                    <div class="volume-box">
+                        <i class="fa-solid fa-volume-high icon-volume"></i>
+                        <input type="range" id="volume" class="volume" value="0" step="10" min="0" max="100" id="">
+                    </div>
                 </div>
             </div>
             <input type="range" id="progress" class="progress" value="0" step="1" min="0" max="100">
             <audio id="audio" src=""></audio>
-            <div class="volume-box">
-                <i class="fa-solid fa-volume-high icon-volume"></i>
-                <input type="range" id="volume" class="volume" value="0" step="10" min="0" max="100" id="">
-            </div>
+            
         </div>
         <div class="playlist">
             <div class="song">

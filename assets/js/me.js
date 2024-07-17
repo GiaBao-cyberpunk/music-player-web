@@ -32,8 +32,10 @@ const randomBtn = $('.btn-random');
 // let songs;
 
 const volume = $('#volume');
+const volumeBox = $('.volume-box');
 
 const app = {
+    isVolumeOpen: false,
     isPlay: false,
     isRandom: false,
     isRepeat: false,
@@ -162,21 +164,36 @@ const app = {
     },
     handleEvents() {
         const _this = this;
-        // hide/ appear CD thumb when user scroll to bottom
+        // hide / appear CD thumb when user scroll to bottom
+        // hide/ appear volume custom
         const cdHeight = cd.offsetWidth;
         document.onscroll = function() {
             const scrollHeight = window.scrollY || document.documentElement.scrollTop;
             const cdNewHeight = cdHeight - scrollHeight;
             const cdOpacity =  cdNewHeight / cdHeight;
+            // Cd thumb
             if(cdHeight >= cdNewHeight) {
                 Object.assign(cd.style, {
                     width: cdNewHeight + 'px',
                     opacity: cdOpacity,
-                })
+                });
+
             } else if(cdNewHeight < 0) {
                 cd.style.height = 0;
             }
+            // volume
+            const volumeOpacity = 2 * cdOpacity - 1;
+            if(cdNewHeight < cdHeight / 2) {
+                volumeBox.style.display = 'none';
+            } else {
+                volumeBox.style.display = 'block';
+                volumeBox.style.opacity = volumeOpacity;
+                volumeBox.style['--fadeIn-to'] = volumeOpacity;
+            }
         };
+
+        
+
 
         // play or pause song when click toggle button
         playBtn.onclick = function() {
