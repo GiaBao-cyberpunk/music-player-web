@@ -5,7 +5,7 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 58%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -24,6 +24,7 @@ body {
 
 .dashboard {
     position: fixed;
+    z-index: 1;
     max-width: 723px;
     margin: 0 auto;
     top: 0;
@@ -71,6 +72,7 @@ body {
     color: var(--primary-color);
 }
 
+.volume-box,
 .btn-random,
 .btn-prev,
 .btn-next,
@@ -123,6 +125,7 @@ body {
 
 }
 
+.volume,
 .progress {
     width: 100%;
     appearance: none;
@@ -137,6 +140,7 @@ body {
     margin: 10px 0 0;
 }
 
+
 .progress::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 14px;
@@ -145,6 +149,55 @@ body {
     background: var(--primary-color); 
 }
 
+.volume-box {
+    position: absolute;
+    left: 28px;
+    bottom: 80px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.volume-box i {
+    font-size: 1.6rem;
+}
+
+.volume {
+    width: 60px;
+    margin-top: 0;
+    rotate: -90deg;
+    position: absolute;
+    z-index: 1;
+    top: -60px;
+    left: -13px;
+    transform: translateX(-50%);
+    display: none;
+    animation: fadeIn ease-in 0.2s;
+}
+
+.volume::after {
+    content: '';
+    width: 100%;
+    height: 64px;
+    display: block;
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(50%);
+    z-index: -1;
+}
+
+.volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: var(--primary-color); 
+}
+
+.volume-box:hover .volume {
+    display: block;
+}
 
 .playlist {
     padding: 8px 12px 20px;
@@ -159,8 +212,12 @@ body {
     display: flex;
     border-radius: 4px;
     cursor: pointer;
-
 }
+
+.song:active {
+    opacity: 0.8;
+}
+
 .song.active {
     background-color: var(--primary-color);
 }
@@ -201,6 +258,121 @@ body {
 .option {
     color: #999;
     font-size: 2.2rem;
-    width: 42px;
-    text-align: right;
+    width: 44px;
+    text-align: center;
+    height: 44px;
+    line-height: 42px;
+    margin: -10px -16px 0 0;
+    position: relative;
+}
+
+.option:hover .option__menu {
+    display: block;
+}
+
+.option__menu {
+    position: absolute;
+    list-style: none;
+    right: 0;
+    top: calc(100% - 6px);
+    color: var(--white-color);
+    background-color: #f599b2;
+    border-radius: 4px;
+    min-width: 180px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.24);
+    display: none;
+    z-index: 1;
+}
+/* 
+.song .option__menu {
+    color: var(--text-color);
+    background-color: #f4f4f4;
+}
+
+.song.active .option__menu {
+    background-color: #f599b2;
+    color: var(--white-color);
+} */
+
+.option__menu::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -20px;
+    right: 0;
+    height: 20px;
+    width: 40%;
+    background-color: transparent;
+}
+
+.option__item {
+    text-align: left;
+    font-size: 1.8rem;
+    line-height: normal;
+    letter-spacing: 1px;
+    padding: 12px 8px;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.option__item:first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.option__item:last-child {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.option__item:hover {
+    background-color: #efa8bb;
+}
+
+.footer {
+    text-align: center;
+    padding: 24px 0;
+    background-color: #f599b2;
+}
+
+.footer__about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+}
+
+.footer__text {
+    font-size: 1.6rem;
+    color: var(--white-color);
+    letter-spacing: 3px;
+}
+
+.footer__img {
+    --size: 18px;
+    width: var(--size);
+    height: var(--size);
+    margin-left: 8px;
+}
+
+.footer__social {
+    margin-top: 8px;
+}
+
+.footer__social-link {
+    color: transparent;
+    text-decoration: none;
+    padding: 11px;
+    margin: 0px 12px;
+    display: inline-block;
+}
+
+.footer__social-link:hover {
+    opacity: 0.6;
+}
+
+.footer__social-icon {
+    color: var(--white-color);
+    font-size: 2.3rem;
 }

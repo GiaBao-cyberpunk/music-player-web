@@ -39,5 +39,15 @@
     .song:hover .author,
     .song:hover .option {
     color: var(--white-color);
+    }
 }
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

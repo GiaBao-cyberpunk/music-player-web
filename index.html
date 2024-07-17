@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music player</title>
+    <link rel="icon" href="https://scontent.fsgn15-1.fna.fbcdn.net/v/t39.30808-6/449078195_2772738966242330_5749427813630444468_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=xirGGjU_XRsQ7kNvgF3kt3d&_nc_ht=scontent.fsgn15-1.fna&oh=00_AYB69mONxMkwLsQaLFIdUnWTmDzQ_vSP2YJz0_yBgzjNGQ&oe=669B03E0" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/styles/main.css">
     <link rel="stylesheet" href="./assets/styles/base.css">
     <script src="https://kit.fontawesome.com/e4f7b1c3b0.js" crossorigin="anonymous"></script>
@@ -38,9 +39,13 @@
             </div>
             <input type="range" id="progress" class="progress" value="0" step="1" min="0" max="100">
             <audio id="audio" src=""></audio>
+            <div class="volume-box">
+                <i class="fa-solid fa-volume-high icon-volume"></i>
+                <input type="range" id="volume" class="volume" value="0" step="10" min="0" max="100" id="">
+            </div>
         </div>
         <div class="playlist">
-            <div class="song active">
+            <div class="song">
                 <div class="thumb" style="background-image: url('./assets/img/song1.jpg')"></div>
                 <div class="body">
                     <h3 class="title">Music name</h3>
@@ -48,11 +53,32 @@
                 </div>
                 <div class="option">
                     <i class="fa-solid fa-ellipsis"></i>
+                    <ul class="option__menu">
+                        <li class="option__item">Remove this song</li>
+                        <li class="option__item">Remove this song</li>
+                    </ul>
                 </div>
             </div>
         </div>
+        <footer class="footer">
+            <div class="footer__about">
+                <p class="footer__text">Made by Bao</p>
+ 
+                <img src="./assets/img/favicon.jpg" alt="" class="footer__img">
+            </div>
+            <div class="footer__social">
+                <a href="https://github.com/GiaBao-cyberpunk" class="footer__social-link">
+                    <i class="fa-brands fa-github footer__social-icon"></i>
+                </a>
+                <a href="https://www.facebook.com/toylabao" class="footer__social-link">
+                    <i class="fa-brands fa-facebook footer__social-icon"></i>
+                </a>
+                <a href="https://www.instagram.com/gbao._.ne/" class="footer__social-link">
+                    <i class="fa-brands fa-instagram footer__social-icon"></i>
+                </a>
+            </div>
+        </footer>
     </div>
-    <!-- <script src="./assets/js/me.js"></script> -->
     <script src="./assets/js/me.js"></script>
 </body>
 </html>
