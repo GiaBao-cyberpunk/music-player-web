@@ -326,19 +326,24 @@ const app = {
                         const newIndex = _this.songs.indexOf(_this.randomSongs[index]);
                         _this.songs.splice(newIndex, 1);
                         _this.randomSongs.splice(index, 1);
-                        if(_this.currentIndex === _this.randomSongs.length) {
+                        if(index < _this.currentIndex) {
                             _this.currentIndex--;
+                        } else if(_this.currentIndex === _this.randomSongs.length) {
+                            _this.currentIndex = 0;
                         }
                     } else {
                         _this.songs.splice(index, 1); 
-                        if(_this.currentIndex === _this.songs.length) {
+                        if(index < _this.currentIndex) {
                             _this.currentIndex--;
+                        } else if(_this.currentIndex === _this.songs.length) {
+                            _this.currentIndex = 0;
                         } 
                     }
 
                     if(e.target.closest('.song.active')) {
                         _this.loadCurrentSong();
                         audio.play();
+                        _this.scrollActiveSongIntoView();
                     }
                     _this.render();
                     handleSongWhenClick();
