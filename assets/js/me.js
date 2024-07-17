@@ -173,7 +173,7 @@ const app = {
             const cdOpacity =  cdNewHeight / cdHeight;
             // Cd thumb
             if (cdHeight < cdNewHeight) {
-                cd.style.height = cdHeight;
+                cd.style.width = cdHeight;
                 cdOpacity = 1;
             } else if(cdHeight >= cdNewHeight) {
                 Object.assign(cd.style, {
@@ -182,7 +182,7 @@ const app = {
                 });
 
             } else if(cdNewHeight < 0) {
-                cd.style.height = 0;
+                cd.style.width = 0;
             }
             // volume
             const volumeOpacity = 2 * cdOpacity - 1;
