@@ -90,8 +90,6 @@ body {
 
 .volume-box i {
     font-size: 1.8rem;
-    position: relative;
-    top: -2px;
 }
 
 .volume {
@@ -292,7 +290,7 @@ body {
     color: var(--white-color);
     background-color: #f599b2;
     border-radius: 4px;
-    min-width: 200px;
+    min-width: 240px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.24);
     display: none;
     z-index: 1;
