@@ -25,7 +25,7 @@ body {
 
 .dashboard {
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     max-width: 723px;
     margin: 0 auto;
     top: 0;
@@ -213,9 +213,9 @@ body {
 
 
 .playlist {
-    padding: 8px 12px 20px;
+    padding: 48px 12px 20px;
     background-color: #f6e9ec;
-    margin-top: 362px;
+    margin-top: 322px;
 }
 
 .song {

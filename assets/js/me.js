@@ -172,7 +172,10 @@ const app = {
             const cdNewHeight = cdHeight - scrollHeight;
             const cdOpacity =  cdNewHeight / cdHeight;
             // Cd thumb
-            if(cdHeight >= cdNewHeight) {
+            if (cdHeight < cdNewHeight) {
+                cd.style.height = cdHeight;
+                cdOpacity = 1;
+            } else if(cdHeight >= cdNewHeight) {
                 Object.assign(cd.style, {
                     width: cdNewHeight + 'px',
                     opacity: cdOpacity,
