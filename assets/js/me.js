@@ -10,7 +10,8 @@
     9. scroll active song into view
     10. play song when click
  */
-    
+const PLAYER_STORAGE_KEY = "It's you";
+
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -39,6 +40,25 @@ const app = {
     isPlay: false,
     isRandom: false,
     isRepeat: false,
+    config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
+    setConfig(key, value) {
+        this.config[key] = value;
+        console.log(this.config);
+        localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
+    },
+    loadConfig() {
+        this.isRandom = this.config.isRandom;
+        this.isRepeat = this.config.isRepeat;
+    },
+    setupToConfig() {
+        if(this.isRandom) {
+            this.handleRandomSongs();
+            randomBtn.classList.add('active');
+        } 
+        if(this.isRepeat) {
+            repeatBtn.classList.add('active');
+        }
+    },
     currentIndex: 0,
     defineProperties() {
         Object.defineProperty(this, 'currentSong', {
@@ -164,6 +184,13 @@ const app = {
     },
     handleEvents() {
         const _this = this;
+
+        // set up setting
+        if(this.isRandom) {
+
+        }
+
+
         // hide / appear CD thumb when user scroll to bottom
         // hide/ appear volume custom
         const cdHeight = cd.offsetWidth;
@@ -271,6 +298,7 @@ const app = {
                 audio.play();
             }
             _this.scrollActiveSongIntoView();
+            _this.setConfig('isRandom', _this.isRandom);
         };
 
         // repeat button onclick
@@ -280,6 +308,7 @@ const app = {
             if(!_this.isPlay) {
                 audio.play();
             }
+            _this.setConfig('isRepeat', _this.isRepeat);
         };
 
         // next or replay song when ended 
@@ -359,6 +388,7 @@ const app = {
             audio.volume = volume.value / 100;
             volume.style.backgroundImage = `linear-gradient(90deg, #ec1f55 ${newAudioVolume * 100}%, transparent 0%)`
         }
+
     },
     activeSong() {
         $('.song.active').classList.remove('active');
@@ -419,6 +449,8 @@ const app = {
         this.loadCurrentSong();
     },
     start() {
+        this.loadConfig();
+        this.setupToConfig();
         this.defineProperties();
         this.loadCurrentSong();
         // render before handleEvents because function handleSongWhenClick() work related songs in playlist
