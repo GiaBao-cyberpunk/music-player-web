@@ -43,7 +43,6 @@ const app = {
     config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
     setConfig(key, value) {
         this.config[key] = value;
-        console.log(this.config);
         localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
     },
     loadConfig() {
@@ -54,6 +53,7 @@ const app = {
         if(this.isRandom) {
             this.handleRandomSongs();
             randomBtn.classList.add('active');
+            this.currentIndex = 0;
         } 
         if(this.isRepeat) {
             repeatBtn.classList.add('active');
@@ -138,7 +138,7 @@ const app = {
             author: 'Trung Quân',
             image: './assets/img/song10.jpg',
             path: './assets/music/song10.mp3'
-        },
+        }
     ],
     randomSongs: [],
     render() {
@@ -185,10 +185,7 @@ const app = {
     handleEvents() {
         const _this = this;
 
-        // set up setting
-        if(this.isRandom) {
-
-        }
+        // set up settings
 
 
         // hide / appear CD thumb when user scroll to bottom
